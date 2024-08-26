@@ -22,15 +22,23 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase database = this.openOrCreateDatabase("Musicians", MODE_PRIVATE, null);
             database.execSQL("CREATE TABLE IF NOT EXISTS musicians(id INTEGER PRIMARY KEY, name VARCHAR, age INT)");
 
+            // Insert (Ekleme)
             //database.execSQL("INSERT INTO musicians (name, age) VALUES ('James', 50)");
             //database.execSQL("INSERT INTO musicians (name, age) VALUES ('Lars', 60)");
             //database.execSQL("INSERT INTO musicians (name, age) VALUES ('Kirk', 55)");
 
-            // Filtering (Filtreleme)
+            // Update (Güncelleme)
+            //database.execSQL("UPDATE musicians SET age = 61 WHERE name = 'Lars' ");
+            //database.execSQL("UPDATE musicians SET name = 'Kirk Hammett' WHERE id = 3");
 
+            // Delete (Silme)
+            //database.execSQL("DELETE FROM musicians WHERE id = 2");
+
+            // Filtering (Filtreleme)
             //Cursor cursor = database.rawQuery("SELECT * FROM musicians WHERE id = 2", null);
             //Cursor cursor = database.rawQuery("SELECT * FROM musicians WHERE age > 52", null);
             //Cursor cursor = database.rawQuery("SELECT * FROM musicians WHERE name = 'James'", null);
+            //Cursor cursor = database.rawQuery("SELECT * FROM musicians WHERE name LIKE 'K%'", null);
             Cursor cursor = database.rawQuery("SELECT * FROM musicians", null);
             int idIx = cursor.getColumnIndex("id");
             int nameIx = cursor.getColumnIndex("name");
